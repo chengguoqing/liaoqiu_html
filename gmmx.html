@@ -1,0 +1,87 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <link href="css/vant.css" rel="stylesheet" />
+    <link href="css/base.css" rel="stylesheet" />
+    <link href="css/style.css" rel="stylesheet" />
+</head>
+
+<body>
+
+    <div id="seek_apper">
+
+        <van-pull-refresh v-model="isLoading" @refresh="onRefresh">
+            <section v-waterfall-lower="loadMore" waterfall-disabled="disabled" waterfall-offset="400">
+
+                <a class="pd pt10 pm5 bbm van-row bk z3" v-for="sd in sd_dsff" href="xiangqing.html">
+                    <section>
+                        <div class="van-col van-col--16">
+                            <section class="dian">
+                                <p class="fz12 z9">我是火神</p>
+                                <p class="mt5 fz16">球料标题</p>
+                            </section>
+                        </div>
+                        <div class="van-col van-col--8">
+                            <section class="dian tr">
+                                <p class="fz12 z9">2018年10月31日</p>
+                                <p class="mt5 fz16 red">￥<span class="fz22">9.02</span></p>
+                            </section>
+                        </div>
+                    </section>
+                </a>
+
+
+            </section>
+        </van-pull-refresh>
+    </div>
+    <script src="js/jquery-1.11.3.min.js"></script>
+<script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+    <script src="js/vant.min.js"></script>
+    <script>
+        new Vue({
+            el: '#seek_apper',
+            data: {
+                sd_dsff: 15,
+                disabled: false,
+                count: 0,
+                isLoading: false
+
+            },
+            methods: {
+                loadMore() {
+                    console.log(222);
+                    this.disabled = true;
+                    setTimeout(() => {
+                        this.sd_dsff += 15
+                        this.disabled = false;
+                       
+                    }, 500);
+                },
+                onRefresh() {
+                    setTimeout(() => {
+                        this.$toast('刷新成功');
+                        this.isLoading = false;
+                        this.count++;
+                    }, 500);
+                }
+
+            },
+            directives: {
+                
+            },
+            mounted: function() {
+              
+            }
+
+
+        })
+
+    </script>
+</body>
+
+</html>

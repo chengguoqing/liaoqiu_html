@@ -1,0 +1,292 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <link href="css/vant.css" rel="stylesheet" />
+    <link href="css/base.css" rel="stylesheet" />
+    <link href="css/style.css" rel="stylesheet" />
+</head>
+
+<body>
+
+
+    <div id="seek_apper">
+
+
+
+        <p class="sdf_jhr_d"></p>
+        <section class="pr">
+            <div class="van-cell-group van-hairline--top-bottom">
+                <div class="van-cell van-field">
+
+                    <div class="van-cell__title"><span>标题</span>
+
+                    </div>
+                    <div class="van-cell__value">
+                        <div class="van-field__body"><input type="text" placeholder="请输入标题" class="van-field__control">
+
+
+
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class="van-cell van-field" @click="show=true">
+
+                    <div class="van-cell__title"><span>大神</span>
+
+                    </div>
+                    <div class="van-cell__value">
+                        <div class="van-field__body">
+                            <input type="text" readonly="readonly" placeholder="选择感兴趣的大神" class="van-field__control" v-model="dasheng">
+
+                            <div class="van-field__icon"><i class="van-icon van-icon-arrow"></i></div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+            <div class="mt10 van-cell-group van-hairline--top-bottom">
+                <div class="van-cell van-field van-field--min-height">
+
+                    <div class="van-cell__title"><span>内容</span>
+
+                    </div>
+                    <div class="van-cell__value">
+                        <div class="van-field__body">
+
+                            <textarea v-model="neirong" rows="4" placeholder="输入内容" class="van-field__control"></textarea>
+
+
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <section class="pd pt5">
+                    <van-row gutter="5">
+                        <van-col span="4" v-for="(sd,idx) in tupian_sd">
+                            <section class="pr pm5">
+                                <img :src="sd" class="w100  cz">
+                                <img src="../img/close.png" class="close_dert " @click="guabn_d(idx)">
+                            </section>
+                        </van-col>
+                        <van-col span="4">
+
+                            <van-uploader :after-read="onRead">
+                                <img src="img/add_img.png" class="w100  cz">
+                            </van-uploader>
+                        </van-col>
+                    </van-row>
+
+
+
+                    <p class="z9 fz12 tr pm5">{{neirong.length}}/10000</p>
+                </section>
+
+
+
+
+            </div>
+            <div class="mt10 van-cell-group van-hairline--top-bottom">
+                <div class="van-cell van-field">
+
+                    <div class="van-cell__title"><span>金额</span>
+
+                    </div>
+                    <div class="van-cell__value">
+                        <div class="van-field__body"><input type="text" placeholder="输入金额" class="van-field__control">
+
+
+
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class="van-cell van-field" @click="show_er=true">
+
+                    <div class="van-cell__title"><span>时间</span>
+
+                    </div>
+                    <div class="van-cell__value">
+                        <div class="van-field__body"><input type="text" readonly="readonly" placeholder="过期时间" class="van-field__control" v-model="time_drr">
+
+                            <div class="van-field__icon"><i class="van-icon van-icon-arrow"></i></div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class="van-cell">
+
+
+                    <div class="van-cell__value van-cell__value--alone">
+                        <section>种类</section>
+                        <van-row gutter="20" class="mt5">
+                            <van-col span="12" v-for="sd in sd_df">
+                                <section class="sd_drer_ert" :class="sd.cls" @click="sddfgf(sd)">{{sd.name}}</section>
+                            </van-col>
+
+                        </van-row>
+                    </div>
+
+                </div>
+                <div class="van-cell van-field" @click="show_san=true">
+
+                    <div class="van-cell__title"><span>类型</span>
+
+                    </div>
+                    <div class="van-cell__value">
+                        <div class="van-field__body"><input type="text" readonly="readonly" placeholder="选择类型" class="van-field__control" v-model="znajh_d">
+
+                            <div class="van-field__icon"><i class="van-icon van-icon-arrow"></i></div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+            <section class="cen mt30"><button class="dfer_deert van-button van-button--danger van-button--normal"><span class="van-button__text">生成</span></button></section>
+        </section>
+
+
+        <van-popup v-model="show" position="bottom">
+            <van-picker show-toolbar :columns="columns" value-key="name" @cancel="show=false" @confirm="wancdrttx" />
+
+
+        </van-popup>
+
+
+
+        <van-popup v-model="show_er" position="bottom">
+            <van-datetime-picker v-model="currentDate" type="datetime" :min-date="minDate" :max-date="maxDate" @confirm="wancdrttx_er" @cancel="show_er=false" />
+
+
+        </van-popup>
+
+
+
+        <van-popup v-model="show_san" position="bottom">
+            <van-picker show-toolbar :columns="columns_er" value-key="name" @cancel="show_san=false" @confirm="wancdrttx_san" />
+
+
+        </van-popup>
+
+    </div>
+    <script src="js/jquery-1.11.3.min.js"></script>
+    <script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+    <script src="js/vant.min.js"></script>
+    <script>
+        new Vue({
+            el: '#seek_apper',
+            data: {
+                show: false,
+                show_er: false,
+                show_san: false,
+                time_drr: "",
+                columns: [{
+                    name: "大神1"
+                }, {
+                    name: "大神2"
+                }],
+                dasheng: "",
+                name: "",
+                neirong: "",
+                tupian_sd: [],
+                sd_df: [{
+                    name: "足球料",
+                    cls: "act"
+                }, {
+                    name: "篮球料",
+                    cls: ""
+                }],
+
+                columns_er: [{
+                    name: "基础料"
+                }, {
+                    name: "料码"
+                }, {
+                    name: "战绩"
+                }],
+                znajh_d: "",
+                minHour: 10,
+                maxHour: 20,
+                minDate: new Date(),
+                maxDate: new Date(2019, 10, 1),
+                currentDate: new Date()
+            },
+            methods: {
+                onRead(file) {
+                    if (this.tupian_sd.length > 8) {
+                        Toast.fail('最多9张!');
+                        return
+                    }
+
+
+                    this.tupian_sd.push(file.content)
+                },
+                guabn_d(idx) {
+                    this.tupian_sd.splice(idx, 1);
+                },
+                sddfgf(sd) {
+                    this.sd_df.map(a => {
+                        a.cls = ""
+                    })
+                    sd.cls = "act"
+                },
+                wancdrttx(e) {
+                    this.dasheng = e.name
+                    this.show = false
+                },
+                time_d(t) {
+                    let time = new Date()
+                    time.setTime(t)
+                    let Year = time.getFullYear(),
+                        Month = time.getMonth() + 1,
+                        Data = time.getDate() < 10 ? 0 + '' + time.getDate() : time.getDate(),
+                        hour = time.getHours() < 10 ? 0 + '' + time.getHours() : time.getHours(),
+                        Minutes = time.getMinutes() < 10 ? 0 + '' + time.getMinutes() : time.getMinutes(),
+                        Seconds = time.getSeconds() < 10 ? 0 + '' + time.getSeconds() : time.getSeconds()
+                    Month < 10 ? Month = 0 + '' + Month : ''
+                    return Year + "-" + Month + "-" + Data + " " + hour + ":" + Minutes + ":" + Seconds
+                },
+                wancdrttx_er(e) {
+
+                    this.time_drr = this.time_d(e)
+                    this.show_er = false
+
+                },
+                wancdrttx_san(e) {
+
+                    this.znajh_d = e.name
+                    this.show_san = false
+
+                }
+
+            },
+            directives: {
+
+            },
+            mounted: function() {
+
+            }
+
+
+        })
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,83 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <link href="css/vant.css" rel="stylesheet" />
+    <link href="css/base.css" rel="stylesheet" />
+    <link href="css/style.css" rel="stylesheet" />
+    <style>
+        .w100{
+            width: 100% !important
+        }
+    </style>
+</head>
+
+<body>
+    <div class="pd">
+        <section class="pt10 fz12 z9">
+            账户余额(元)
+        </section>
+        <p class="fz24 z3 mt2">197.00</p>
+        <section class="btm mt10 pt10"><span class="fz16 z3">余额充值</span><span class="ml10 fz12 van-tag" style="background-color: rgb(255, 68, 68);">1元=1金币</span></section>
+        <div class="van-row" style="margin-left: -5px; margin-right: -5px;">
+            <div class="van-col van-col--8" style="padding-left: 5px; padding-right: 5px;">
+                <section class="sd_jh_der red cen mt10 act">
+                    <section><span class="fz22">88.00</span><span class="fz12">元</span></section>
+                    <p class="fz12 mt5">88金币</p>
+                </section>
+            </div>
+            <div class="van-col van-col--8" style="padding-left: 5px; padding-right: 5px;">
+                <section class="sd_jh_der red cen mt10">
+                    <section><span class="fz22">188.00</span><span class="fz12">元</span></section>
+                    <p class="fz12 mt5">188金币+<br>送8金币</p>
+                </section>
+            </div>
+            <div class="van-col van-col--8" style="padding-left: 5px; padding-right: 5px;">
+                <section class="sd_jh_der red cen mt10">
+                    <section><span class="fz22">588.00</span><span class="fz12">元</span></section>
+                    <p class="fz12 mt5">588金币+<br>送38金币</p>
+                </section>
+            </div>
+            <div class="van-col van-col--8" style="padding-left: 5px; padding-right: 5px;">
+                <section class="sd_jh_der red cen mt10">
+                    <section><span class="fz22">888.00</span><span class="fz12">元</span></section>
+                    <p class="fz12 mt5">888金币+<br>送88金币</p>
+                </section>
+            </div>
+            <div class="van-col van-col--8" style="padding-left: 5px; padding-right: 5px;">
+                <section class="sd_jh_der red cen mt10">
+                    <section><span class="fz22">1888.00</span><span class="fz12">元</span></section>
+                    <p class="fz12 mt5">1888金币+<br>送228金币</p>
+                </section>
+            </div>
+            <div class="van-col van-col--8" style="padding-left: 5px; padding-right: 5px;">
+                <section class="sd_jh_der red cen mt10">
+                    <section><span class="fz22">3888.00</span><span class="fz12">元</span></section>
+                    <p class="fz12 mt5">3888金币+<br>送588金币</p>
+                </section>
+            </div>
+        </div>
+        <section class="z9 fz12 z9 pt10">
+            充值的金币 可以购买球料超市所有大神的料
+        </section>
+        <section class="mt20 cen">
+            <button class="dfer_deert w100 van-button van-button--danger van-button--normal ">
+                <span class="van-button__text">立即充值</span>
+            </button>
+        </section>
+    </div>
+
+    <script src="js/jquery-1.11.3.min.js"></script>
+    <script>
+        $(".sd_jh_der").on("click",function(){
+            $(".sd_jh_der").removeClass("act")
+            $(this).addClass("act")
+        })
+    </script>
+</body>
+
+</html>
